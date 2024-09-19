@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categorías de Legislación Informática</title>
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #1b1634;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: rgba(37, 32, 70, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #ec780C;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .btn {
+            margin-top: 20px;
+            background-color: #3b31ac;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .btn:hover {
+            background-color: #2a2398;
+        }
+
+        .btn:disabled {
+            background-color: #555;
+            cursor: not-allowed;
+        }
+
+        .nav-buttons {
+            margin-top: 20px;
+        }
+
+        .back-menu {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .back-menu a {
+            text-decoration: none;
+            background-color: #ec780C;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        .back-menu a:hover {
+            background-color: #d56b06;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="back-menu">
+        <a href="menu.html">Volver al Menú</a>
+    </div>
+
+    <div class="container">
+        <h1 id="title">Conceptos Generales</h1>
+        <p id="content">
+            Esta categoría cubre temas fundamentales como:<br><br>
+            - <strong>Protección de Datos:</strong> Leyes que regulan el tratamiento y protección de los datos personales.<br>
+            - <strong>Ciberseguridad:</strong> Medidas diseñadas para proteger sistemas, redes y datos frente a ataques cibernéticos.<br>
+            - <strong>Fraude Informático:</strong> Delitos que implican el uso de computadoras o redes para engañar y obtener beneficios ilegales.<br>
+            - <strong>Delitos Informáticos:</strong> Actividades criminales realizadas a través del uso de la informática o el internet.<br>
+            - <strong>Privacidad:</strong> El derecho de las personas a controlar el acceso y uso de su información personal.
+        </p>
+        <div class="nav-buttons">
+            <button class="btn" id="prev-btn" onclick="previousCategory()" disabled>Retroceder</button>
+            <button class="btn" id="next-btn" onclick="nextCategory()">Siguiente</button>
+        </div>
+    </div>
+
+    <script>
+        // Definir las categorías y contenido
+        let bd = [
+            [
+                '<strong>Protección de Datos:</strong> Leyes que regulan el tratamiento y protección de los datos personales.',
+                '<strong>Ciberseguridad:</strong> Medidas diseñadas para proteger sistemas, redes y datos frente a ataques cibernéticos.',
+                '<strong>Fraude Informático:</strong> Delitos que implican el uso de computadoras o redes para engañar y obtener beneficios ilegales.',
+                '<strong>Delitos Informáticos:</strong> Actividades criminales realizadas a través del uso de la informática o el internet.',
+                '<strong>Privacidad:</strong> El derecho de las personas a controlar el acceso y uso de su información personal.'
+            ],
+            [
+                '<strong>Derecho al Olvido:</strong> Derecho de las personas a solicitar la eliminación de información personal en internet.',
+                '<strong>Firma Electrónica:</strong> Método legal para firmar documentos de manera digital con validez jurídica.',
+                '<strong>Ley de Comercio Electrónico:</strong> Marco regulador para las transacciones comerciales realizadas por medios electrónicos.',
+                '<strong>Propiedad Intelectual:</strong> Protección de derechos sobre creaciones intelectuales, como patentes o derechos de autor.',
+                '<strong>Patente de Software:</strong> Protección legal que garantiza los derechos exclusivos sobre un software específico.'
+            ],
+            [
+                '<strong>Ley Orgánica de Comunicación:</strong> Regula el ejercicio de la comunicación y la información en Ecuador.',
+                '<strong>Derecho Informático:</strong> Rama del derecho que regula el uso de la informática y el ciberespacio.',
+                '<strong>Normativa de Acceso a la Información:</strong> Conjunto de leyes que garantizan el derecho de los ciudadanos a acceder a la información pública.',
+                '<strong>Transparencia:</strong> Principio que permite a los ciudadanos conocer y acceder a la información pública.',
+                '<strong>Gobierno Electrónico:</strong> Uso de las TIC para mejorar los servicios gubernamentales y la relación con los ciudadanos.'
+            ],
+            [
+                '<strong>Habeas Data:</strong> Derecho que protege los datos personales de uso indebido.',
+                '<strong>Regulación de Plataformas Digitales:</strong> Normas que controlan el funcionamiento y la responsabilidad de las plataformas digitales.',
+                '<strong>Responsabilidad de los Proveedores:</strong> Obligaciones legales que tienen los proveedores de servicios tecnológicos.',
+                '<strong>Contratos Electrónicos:</strong> Acuerdos firmados y ejecutados digitalmente con validez legal.',
+                '<strong>Sanciones por Cibercrímenes:</strong> Castigos impuestos por cometer delitos cibernéticos, como hacking o robo de datos.'
+            ]
+        ];
+
+        let categorias = [
+            'Conceptos Generales', 
+            'Herramientas Legales', 
+            'Normativas', 
+            'Regulaciones y Sanciones'
+        ];
+
+        let currentCategory = 0;
+
+        // Función para cambiar de categoría
+        function nextCategory() {
+            currentCategory++;
+            updateContent();
+        }
+
+        function previousCategory() {
+            currentCategory--;
+            updateContent();
+        }
+
+        // Actualizar contenido y habilitar/deshabilitar botones
+        function updateContent() {
+            document.getElementById('title').textContent = categorias[currentCategory];
+            document.getElementById('content').innerHTML = `
+                - ${bd[currentCategory][0]}<br>
+                - ${bd[currentCategory][1]}<br>
+                - ${bd[currentCategory][2]}<br>
+                - ${bd[currentCategory][3]}<br>
+                - ${bd[currentCategory][4]}
+            `;
+
+            // Deshabilitar botones si estamos en los límites
+            document.getElementById('prev-btn').disabled = currentCategory === 0;
+            document.getElementById('next-btn').disabled = currentCategory === categorias.length - 1;
+        }
+    </script>
+
+</body>
+</html>

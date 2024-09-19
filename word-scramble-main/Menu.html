@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        body {
+            background-image: url('/legislacion.jpg'); /* Cambia 'ruta-de-tu-imagen.jpg' por la URL o ruta de tu imagen */
+            background-size: cover; /* Hace que la imagen cubra todo el fondo */
+            background-position: center; /* Centra la imagen */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            font-family: 'Roboto Mono', monospace;
+            color: #fff;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            font-size: 40px;
+            font-family: 'Vast Shadow', cursive;
+            color: #ec780C;
+            margin-bottom: 20px;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background-color: #fff;
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .card {
+    background-color: rgba(37, 32, 70, 0.8); /* El último valor (0.8) es el nivel de transparencia */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    margin: 0 auto;
+                }
+
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu button {
+            background-color: #3b31ac;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .menu button:hover {
+            background-color: #2a2398;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Menú</h1>
+        <hr> <!-- Línea horizontal -->
+        <div class="menu">
+            <a href="aprender.html"><button>Aprender</button></a>
+            <a href="index.html"><button>Jugar</button></a>
+            <a href="pagina-opciones.html"><button>Opciones</button></a>
+        </div>
+    </div>
+</body>
+</html>

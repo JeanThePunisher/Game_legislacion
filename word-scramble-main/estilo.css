@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&family=Vast+Shadow&display=swap');
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: #1b1634;
+    font-family: 'Roboto Mono';
+}
+h1{
+    font-size: 40px;
+    text-align: center;
+    color: #fff;
+    font-family: 'Vast Shadow';
+    font-weight: normal;
+}
+h2{
+    font-size: 35px;
+    text-align: center;
+    color:#ec780C;
+    letter-spacing: 5px;
+}
+.contenedor{
+    max-width: 100%; /* Ajustamos el ancho del contenedor a la pantalla */
+    margin: auto;
+    padding: 10px; /* Añadimos algo de padding */
+    position: relative; /* Asegura que los elementos sigan el flujo */
+    z-index: 1; /* Mantiene el contenedor en un nivel inferior al botón */
+}
+.contenedor .fila{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin: 10px 0;
+    flex-wrap: wrap; /* Permite que los elementos se acomoden en líneas si es necesario */
+}
+.contenedor .fila .palabra{
+    width: 45%;
+    color: #ff6961;
+    font-size: 22px; /* Reducimos el tamaño del texto para que las palabras largas se ajusten mejor */
+    padding: 10px;
+    border-radius: 30px;
+    font-weight: bold;
+    border: 2px solid #3b31ac;
+    word-wrap: break-word; /* Permite que las palabras largas se dividan */
+    overflow-wrap: break-word;
+}
+.contenedor input{
+    width: 45%;
+    text-align: center;
+    font-size: 22px; /* Reducimos el tamaño del input */
+    border-radius: 30px;
+    border: 2px solid #3b31ac;
+    outline: none;
+    background: #1b1634;
+    color: #ff6961;
+    padding: 10px;
+}
+.correcta{
+    color: #2fff00 !important;
+    transition: .5s;
+}
+button{
+    border: none;
+    background-color: #3b31ac;
+    color: #fff;
+    display: block;
+    margin: 30px auto;
+    width: fit-content;
+    padding: 7px 10px;
+    border-radius: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    animation: zoom 1.5s infinite linear;
+    position: relative; /* Asegúrate de que tenga una posición */
+    z-index: 10; /* Asignamos un z-index alto para que esté por encima */
+}
+@keyframes zoom {
+    0%{transform: scale(1);}
+    50%{transform: scale(1.2);}
+    100%{transform: scale(1);}
+}
+.niveles{
+    background-color: #0e0d12;
+    position: relative; /* Cambiado a relative */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    z-index: 5; /* Ajustado z-index para evitar conflictos con el botón */
+}
+.nivel{
+    background-color: #353444;
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+    position: relative;
+    border-radius: 20px;
+    transition: .6s;
+}
+.nivel i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: #000;
+}
+.completado{
+    background-color: #47a432;  
+}
+.completado i{
+    color: #fff !important; 
+}
